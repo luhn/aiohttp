@@ -157,12 +157,12 @@ class WebSocketResponse(StreamResponse):
     def exception(self):
         return self._exception
 
-    def ping(self, message='b'):
+    def ping(self, message=b''):
         if self._writer is None:
             raise RuntimeError('Call .prepare() first')
         self._writer.ping(message)
 
-    def pong(self, message='b'):
+    def pong(self, message=b''):
         # unsolicited pong
         if self._writer is None:
             raise RuntimeError('Call .prepare() first')
